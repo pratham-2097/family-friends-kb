@@ -89,6 +89,18 @@ sibling_in_law(X,Y) :- sibling(X,S), spouse(S,Y).
 
 friend(X,Y) :- friend_of(X,Y) ; friend_of(Y,X).
 
+related(X,Y) :-
+    parent(X,Y) ;
+    parent(Y,X) ;
+    child(X,Y) ;
+    child(Y,X) ;
+    sibling(X,Y) ;
+    spouse(X,Y) ;
+    ancestor(X,Y) ;
+    ancestor(Y,X) ;
+    descendant(X,Y) ;
+    descendant(Y,X).
+
 good_match(X,Y,Thing) :-
     likes(X,Thing),
     likes(Y,Thing),
